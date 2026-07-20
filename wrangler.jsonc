@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mns-all-seasons-comforts",
+  "compatibility_date": "2026-07-20",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "mns-comforts"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
