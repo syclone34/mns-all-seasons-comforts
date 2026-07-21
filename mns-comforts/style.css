@@ -5,9 +5,11 @@
 
 :root {
     --navy-deepest: #f8fafc;
+    --navy-deep: #0f172a;
     --navy-dark: #f1f5f9;
     --navy: #e2e8f0;
     --navy-light: #cbd5e1;
+    --sky-blue: #38bdf8;
     --accent: #FF6B35;
     --accent-dark: #e05520;
     --accent-light: #c2410c;
@@ -411,9 +413,9 @@ ul {
 
 .mobile-close {
     align-self: flex-end;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.08);
     border: 1px solid var(--border);
-    color: var(--white);
+    color: #0f172a;
     width: 36px;
     height: 36px;
     border-radius: 8px;
@@ -424,14 +426,14 @@ ul {
 }
 
 .mobile-close:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: rgba(15, 23, 42, 0.16);
 }
 
 .mobile-logo {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
     font-size: 1rem;
-    color: var(--white);
+    color: #0f172a;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 8px;
@@ -1280,8 +1282,8 @@ ul {
     display: flex;
     align-items: center;
     gap: 16px;
-    background: var(--accent-glow);
-    border: 1px solid rgba(255, 107, 53, 0.3);
+    background: #0f172a;
+    border: 1px solid rgba(255, 107, 53, 0.4);
     border-radius: var(--radius);
     padding: 20px 24px;
     margin-bottom: 24px;
@@ -1289,7 +1291,8 @@ ul {
 }
 
 .call-block:hover {
-    background: rgba(255, 107, 53, 0.18);
+    background: #1e293b;
+    border-color: var(--accent);
     transform: translateX(4px);
 }
 
@@ -1301,12 +1304,12 @@ ul {
     font-family: 'Outfit', sans-serif;
     font-size: 1.4rem;
     font-weight: 800;
-    color: var(--white);
+    color: #ffffff;
 }
 
 .call-note {
     font-size: 0.82rem;
-    color: var(--accent-light);
+    color: #ff8c5a;
     margin-top: 2px;
 }
 
@@ -1409,7 +1412,7 @@ ul {
 .form-success h3 {
     font-family: 'Outfit', sans-serif;
     font-size: 1.4rem;
-    color: var(--white);
+    color: #0f172a;
 }
 
 .form-success p {
@@ -1491,7 +1494,7 @@ ul {
 }
 
 .footer-bottom {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding: 20px 24px;
     display: flex;
     justify-content: space-between;
@@ -1499,7 +1502,7 @@ ul {
     flex-wrap: wrap;
     gap: 8px;
     font-size: 0.82rem;
-    color: var(--text-muted);
+    color: #cbd5e1;
 }
 
 .footer-credit a {
