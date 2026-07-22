@@ -1453,7 +1453,7 @@ ul {
 }
 
 .footer-logo img {
-    filter: brightness(0) invert(1);
+    filter: drop-shadow(0.5px 0px 0px rgba(255, 255, 255, 0.8)) drop-shadow(-0.5px 0px 0px rgba(255, 255, 255, 0.8)) drop-shadow(0px 0.5px 0px rgba(255, 255, 255, 0.8)) drop-shadow(0px -0.5px 0px rgba(255, 255, 255, 0.8));
 }
 
 .footer-brand p {
