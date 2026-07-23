@@ -609,6 +609,59 @@
         </div>
     </footer>
 
+    <!-- Floating SMS Widget -->
+    <div class="sms-widget-container" id="smsWidget">
+        <!-- Floating Trigger Button -->
+        <button class="sms-trigger-btn" id="smsTrigger" aria-label="Text us">
+            <span class="sms-pulse-dot"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="sms-icon-svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742h.008v.008h-.008v-.008zm.37 0h.008v.008h-.008v-.008zm.37 0h.008v.008h-.008v-.008zm2.25 0h.008v.008h-.008v-.008zm.37 0h.008v.008h-.008v-.008zm.37 0h.008v.008h-.008v-.008zm1.875 0h.007v.008H14.25v-.008zm.375 0h.008v.008h-.008v-.008zm.375 0h.008v.008h-.008v-.008zM12 21a9.003 9.003 0 008.313-5.547L21 14.25v-1.875a9 9 0 10-18 0v1.875l.687 1.203A9.003 9.003 0 0012 21z" />
+            </svg>
+            <span class="sms-btn-text">Text Us</span>
+        </button>
+
+        <!-- Chat Drawer Window -->
+        <div class="sms-drawer-card hidden" id="smsDrawer">
+            <div class="sms-drawer-header">
+                <div class="sms-header-info">
+                    <h4>MN's All Seasons Comforts</h4>
+                    <p>🟢 Online — Text Line</p>
+                </div>
+                <button class="sms-close-btn" id="smsClose" aria-label="Close chat">✕</button>
+            </div>
+            
+            <!-- SMS Form -->
+            <form id="smsWidgetForm" name="sms-widget" method="POST" data-netlify="true" class="sms-drawer-body">
+                <input type="hidden" name="form-name" value="sms-widget">
+                <p class="sms-intro">Text us your question and we'll reply directly to your phone!</p>
+                
+                <div class="sms-form-group">
+                    <label for="smsName">Your Name</label>
+                    <input type="text" id="smsName" name="smsName" required placeholder="John Smith">
+                </div>
+                
+                <div class="sms-form-group">
+                    <label for="smsPhone">Mobile Number</label>
+                    <input type="tel" id="smsPhone" name="smsPhone" required placeholder="763-555-0100">
+                </div>
+                
+                <div class="sms-form-group">
+                    <label for="smsMessage">How can we help?</label>
+                    <textarea id="smsMessage" name="smsMessage" rows="2" required placeholder="My furnace is making a weird sound..."></textarea>
+                </div>
+                
+                <button type="submit" class="sms-submit-btn">Send Text Request</button>
+            </form>
+
+            <!-- Success Feedback -->
+            <div class="sms-success-body hidden" id="smsSuccessMsg">
+                <div class="sms-success-icon">💬</div>
+                <h4>Text Request Sent!</h4>
+                <p>Thanks! We've received your inquiry and will text you back shortly at <strong id="smsTargetNumber"></strong>.</p>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 

@@ -174,4 +174,51 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => toast.remove(), 400);
         }, 3000);
     }
+
+    // ==========================================
+    // 8. SMS Widget Toggle & Interactive Logic
+    // ==========================================
+    const smsTrigger = document.getElementById('smsTrigger');
+    const smsDrawer = document.getElementById('smsDrawer');
+    const smsClose = document.getElementById('smsClose');
+    const smsWidgetForm = document.getElementById('smsWidgetForm');
+    const smsSuccessMsg = document.getElementById('smsSuccessMsg');
+    const smsTargetNumber = document.getElementById('smsTargetNumber');
+
+    if (smsTrigger && smsDrawer) {
+        smsTrigger.addEventListener('click', () => {
+            smsDrawer.classList.toggle('hidden');
+        });
+    }
+
+    if (smsClose) {
+        smsClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            smsDrawer.classList.add('hidden');
+        });
+    }
+
+    if (smsWidgetForm) {
+        smsWidgetForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const phoneInput = document.getElementById('smsPhone');
+            if (phoneInput && smsTargetNumber) {
+                smsTargetNumber.textContent = phoneInput.value;
+            }
+
+            const formData = new FormData(smsWidgetForm);
+            Promise.all([
+                fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                }).catch(() => {}),
+                new Promise(resolve => setTimeout(resolve, 800))
+            ])
+            .then(() => {
+                smsWidgetForm.classList.add('hidden');
+                if (smsSuccessMsg) smsSuccessMsg.classList.remove('hidden');
+            });
+        });
+    }
 });

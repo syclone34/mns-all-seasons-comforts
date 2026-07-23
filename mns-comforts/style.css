@@ -1453,7 +1453,7 @@ ul {
 }
 
 .footer-logo img {
-    filter: drop-shadow(0.5px 0px 0px rgba(255, 255, 255, 0.8)) drop-shadow(-0.5px 0px 0px rgba(255, 255, 255, 0.8)) drop-shadow(0px 0.5px 0px rgba(255, 255, 255, 0.8)) drop-shadow(0px -0.5px 0px rgba(255, 255, 255, 0.8));
+    filter: drop-shadow(0px 0px 1.5px rgba(255, 255, 255, 0.95));
 }
 
 .footer-brand p {
@@ -1656,4 +1656,228 @@ ul {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ==========================================
+   FLOATING SMS WIDGET
+   ========================================== */
+.sms-widget-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+}
+
+.sms-trigger-btn {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+    transition: var(--transition);
+    position: relative;
+}
+
+.sms-trigger-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+}
+
+.sms-icon-svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sms-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border: 1.5px solid var(--accent);
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0.4);
+    animation: sms-pulse 2s infinite;
+}
+
+@keyframes sms-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(34, 197, 94, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0px rgba(34, 197, 94, 0);
+    }
+}
+
+.sms-drawer-card {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 320px;
+    background: var(--white);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    animation: sms-slide-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sms-drawer-card.hidden {
+    display: none;
+}
+
+@keyframes sms-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.sms-drawer-header {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sms-header-info h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+}
+
+.sms-header-info p {
+    font-size: 0.75rem;
+    color: #a3e635;
+    margin: 0;
+}
+
+.sms-close-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sms-close-btn:hover {
+    color: var(--white);
+}
+
+.sms-drawer-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sms-drawer-body.hidden {
+    display: none;
+}
+
+.sms-intro {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.sms-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sms-form-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.sms-form-group input,
+.sms-form-group textarea {
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    outline: none;
+    transition: var(--transition);
+}
+
+.sms-form-group input:focus,
+.sms-form-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.sms-submit-btn {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 8px;
+}
+
+.sms-submit-btn:hover {
+    background: var(--accent-dark);
+}
+
+.sms-success-body {
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.sms-success-body.hidden {
+    display: none;
+}
+
+.sms-success-icon {
+    font-size: 2.5rem;
+}
+
+.sms-success-body h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.sms-success-body p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
 }
